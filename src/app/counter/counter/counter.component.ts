@@ -5,26 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent {
-  counter: number =0;
+export class CounterComponent { 
 
-  constructor(){
+  
 
+  ngOninit(): void{
+   
   }
 
-  ngOninit(){
-
-  }
-
-  onIncrement(){
-    this.counter++;
-  }
-
-  onDecrement(){
-    this.counter--;
-  }
-
-  onReset(){
-    this.counter = 0;
-  }
 }
