@@ -13,9 +13,10 @@ const _counterReducer = createReducer(
         return {...state,counter: 0};
     }),
     on(customIncrement, (state, action)=>{
+        console.log(action);
         return{
             ...state,
-            counter: 2,
+            counter: 4,
         };
     })
 );
