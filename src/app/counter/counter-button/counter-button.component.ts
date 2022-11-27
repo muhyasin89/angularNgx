@@ -23,7 +23,7 @@ export class CounterButtonComponent implements OnInit{
   }
 
   onDecrement(){
-    console.log("decrement");
+    // console.log("decrement");
     this.store.dispatch(decrement());
   }
 
