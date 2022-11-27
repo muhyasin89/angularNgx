@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppState } from 'src/app/store/app.state';
+import { editPost } from '../state/post.action';
 import { getPostById } from '../state/post.selector';
 
 @Component({
@@ -17,12 +18,26 @@ export class EditPostComponent implements OnInit{
   postForm: FormGroup;
   postSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private store: Store<AppState>){
+  constructor(private route: ActivatedRoute, private store: Store<AppState>, private router: Router){
 
   }
 
   onEditPost(){
+    if(!this.postForm.valid){
+      return;
+    }
 
+    const title = this.postForm.value.title;
+    const description = this.postForm.value.description;
+
+    const post: Post = {
+      id: this.post.id,
+      title,
+      description
+    }
+    //dispatch action
+    this.store.dispatch(editPost({post}));
+    this.router.navigate(['posts']);
   }
 
   ngOnInit(): void{

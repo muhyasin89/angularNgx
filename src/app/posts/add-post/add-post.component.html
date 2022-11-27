@@ -23,7 +23,7 @@
                 <div>{{showDescriptionErrors()}}</div>
             </div>
             <div class="my-3">
-                <button type="submit" class="btn btn-primary">Submit Post </button>
+                <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Submit Post </button>
             </div>
             
         </form>
