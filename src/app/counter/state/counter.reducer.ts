@@ -4,7 +4,7 @@ import { initialState } from "./counter.state";
 
 const _counterReducer = createReducer(
     initialState, 
-        on(increment, (state) =>{
+    on(increment, (state) =>{
             return {...state,counter: state.counter+1};
     }),
     on(decrement, (state) =>{

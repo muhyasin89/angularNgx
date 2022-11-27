@@ -1,11 +1,6 @@
-const initialState = {
-    posts:[
-        {id:'1', title: 'Sample Title 1', description: 'Sample Description 1'},
-        {id:'2', title: 'Sample Title 2', description: 'Sample Description 2'},
-    ]
-}
+import { createAction, props } from "@ngrx/store";
+import { Post } from "src/app/models/posts.model";
 
+export const ADD_POST_ACTION = '[posts page] add post';
 
-export interface PostsState {
-    posts: [{}]
-}
+export const addPost = createAction(ADD_POST_ACTION, props<{post:Post}>());
